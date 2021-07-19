@@ -1,0 +1,21 @@
+{
+  "name": "docker-simple-file-upload",
+  "version": "1.0.3",
+  "description": "A simple and secure file upload API endpoint",
+  "repository": "https://github.com/TwoStoryRobot/docker-simple-file-upload",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "author": "Chris Foster <chris.james.foster@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "supertest": "^6.1.3"
+  }
+}
