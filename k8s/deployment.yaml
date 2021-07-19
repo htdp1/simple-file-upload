@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-file-upload
+  labels:
+    app: simple-file-upload
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-file-upload
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: simple-file-upload
+    spec:
+      containers:
+      - image: htdp1/simple-file-upload:latest
+        name: simple-file-upload
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        # resources:
+        #   limits:
+        #     cpu: 2000m
+        #     memory: 2048Mi
+        #   requests:
+        #     cpu: 500m
+        #     memory: 512Mi

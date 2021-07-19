@@ -1,4 +1,5 @@
 FROM node:14-alpine
+RUN mkdir /uploads
 RUN mkdir -p /code
 WORKDIR /code
 ADD . /code
