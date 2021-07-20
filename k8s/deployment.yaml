@@ -5,7 +5,7 @@ metadata:
   labels:
     app: simple-file-upload
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: simple-file-upload
@@ -22,13 +22,13 @@ spec:
       containers:
       - image: htdp1/simple-file-upload:latest
         name: simple-file-upload
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
-        # resources:
-        #   limits:
-        #     cpu: 2000m
-        #     memory: 2048Mi
-        #   requests:
-        #     cpu: 500m
-        #     memory: 512Mi
+        resources:
+          limits:
+            cpu: 2000m
+            memory: 8192Mi
+          requests:
+            cpu: 500m
+            memory: 1024Mi

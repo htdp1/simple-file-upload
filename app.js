@@ -16,8 +16,13 @@ function handleUpload(req, res, next) {
   if (!req.files || !req.files.data) throw notProvided
   // if (!req.query.key || !process.env['KEY_' + req.query.key]) throw invalidKey
   // req.files.data.mv(process.env['KEY_' + req.query.key] + "20210719", next)
-  const uuid = uuidv4();
-  req.files.data.mv('/uploads/' + uuid, next)
+  
+  // const uuid = uuidv4();
+  // req.files.data.mv('/uploads/' + uuid);
+
+  const buffer = req.files.data.data;
+  // console.log(req.files.data.size / 1024 / 1024);
+  next();
 }
 
 function handleSuccess(req, res, next) {
